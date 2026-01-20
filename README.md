@@ -1,26 +1,36 @@
-# Incident Tracker
+# 🛡️ Live Incident Tracker
 
-A lightweight, Flask-based web application designed to log, manage, and track incidents efficiently. This tool provides a streamlined interface for reporting issues and monitoring their status through a centralized dashboard.
+A high-performance, real-time incident management system featuring a modern **Glassmorphism UI**. This application allows users to report incidents instantly and enables administrators to manage them through a live, synchronized dashboard.
 
-## 🚀 Features
 
-- **Incident Logging:** Quickly report new incidents with essential details.
-- **Dashboard View:** A clean interface to view all active and historical incidents.
-- **Database Integration:** Persistent storage using SQLite for reliable data management.
-- **Responsive Design:** Built with HTML/CSS templates for a user-friendly experience across devices.
+
+## ✨ Key Features
+
+* **Real-Time Live Feed**: Integrated **Flask-SocketIO** to broadcast new incidents and status updates to all connected clients instantly without page refreshes.
+* **Modern Glassmorphism UI**: Developed a premium "Soft UI" aesthetic using CSS backdrop-filters, custom variables, and glowing status indicators for a professional look.
+* **Admin Management Hub**: Includes live statistics (Pending, In Progress, Resolved), advanced search functionality, and real-time status control.
+* **Responsive & Intuitive**: Optimized for clear visual hierarchy, ensuring incident details are scannable and easy to read.
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Python (Flask)
-- **Database:** SQLite
-- **Frontend:** HTML, Jinja2 Templates
-- **Language Breakdown:** HTML (78%), Python (22%)
+* **Backend**: Python (Flask), Flask-SocketIO.
+* **Frontend**: JavaScript (ES6+), HTML5, CSS3 (Custom Glassmorphism).
+* **Database**: SQLite3 (Persistent incident storage).
 
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```text
-incident-tracker/
-├── app.py              # Main Flask application logic
-├── init_db.py          # Script to initialize the SQLite database
-├── incidents.db        # SQLite database file (generated after init)
-└── templates/          # HTML templates for the web interface
+INCIDENT-TRACKER/
+├── static/
+│   ├── css/
+│   │   └── style.css      # Custom Glassmorphism styles
+│   └── js/
+│       ├── admin.js       # Admin filtering & status logic
+│       └── user.js        # User reporting & live feed logic
+├── templates/
+│   ├── index.html         # Role selection
+│   ├── login.html         # Glassmorphism login page
+│   ├── admin.html         # Admin dashboard
+│   └── user.html          # User reporting dashboard
+├── app.py                 # Flask server & WebSocket handling
+└── incidents.db           # SQLite database
