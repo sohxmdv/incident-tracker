@@ -3,6 +3,9 @@ from flask_socketio import SocketIO, emit
 from datetime import datetime
 import uuid
 import sqlite3
+import mimetypes
+
+mimetypes.add_type('text/css', '.css')
 
 app = Flask(__name__)
 app.secret_key = 'supersecret'

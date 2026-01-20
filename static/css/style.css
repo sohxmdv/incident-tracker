@@ -1,0 +1,333 @@
+/* --- 1. GLOBAL & ATTRACTIVE LOGIN --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-gradient);
+    color: white;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Centering for Login/Role Selection */
+body.centered-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login-card,
+.selection-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.login-card h3,
+.selection-container h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.btn-login,
+.btn-submit {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* --- 2. DASHBOARD LAYOUT (User & Admin) --- */
+.dashboard-body {
+    display: block;
+    padding-top: 80px;
+    background: var(--bg-gradient);
+    /* Added background here just in case */
+    min-height: 100vh;
+}
+
+.main-nav {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 2rem;
+}
+
+/* --- 3. INCIDENT ITEMS & FEED (Modern Hierarchy) --- */
+.list-group-item,
+.admin-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.list-group-item:hover,
+.admin-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+/* Header line: Bold Title and Soft Timestamp */
+.incident-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+}
+
+.incident-title {
+    font-size: 1.15rem;
+    font-weight: 800; /* Extra bold for visibility */
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.incident-location {
+    color: #818cf8; /* Distinct color for location scanability */
+    font-weight: 600;
+}
+
+.incident-time {
+    font-size: 0.8rem;
+    color: var(--text-muted); /* Soft grey to reduce noise */
+    font-weight: 400;
+}
+
+/* Description: Clean and readable */
+.incident-desc {
+    font-size: 0.95rem;
+    color: #cbd5e1; /* Lighter grey for better reading contrast */
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* --- 5. ADMIN DASHBOARD SPECIFICS --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--glass-bg);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid transparent;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    display: block;
+}
+
+/* Restoring original colorful borders for stats */
+.stats-grid .stat-card.pending {
+    border-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.stats-grid .stat-card.progress {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.stats-grid .stat-card.resolved {
+    border-color: #10b981;
+    color: #10b981;
+}
+
+/* Admin Controls: Wide Search & Visible Dropdown */
+.admin-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 2rem;
+    align-items: stretch;
+}
+
+.admin-controls .search-box {
+    flex: 3;
+    /* Wide and professional */
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 0 15px;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+}
+
+.admin-controls .search-box input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    width: 100%;
+    padding: 12px 0;
+    outline: none;
+}
+
+.admin-controls .custom-select {
+    flex: 1;
+    /* Compact dropdown */
+    background: #1e293b;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    outline: none;
+}
+
+.admin-controls .custom-select option {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+/* Glowing Status Buttons - Restoring the colors you liked */
+.action-buttons .btn-status {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.action-buttons .btn-status.active-pending {
+    background: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+
+.action-buttons .btn-status.active-progress {
+    background: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.action-buttons .btn-status.active-resolved {
+    background: #10b981;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+/* --- 6. SUCCESS MESSAGE (TOAST) --- */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    transition: all 0.3s ease;
+}
+
+/* Hiding logic using visibility and pointer-events instead of !important */
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
